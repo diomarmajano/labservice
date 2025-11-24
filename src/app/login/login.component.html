@@ -1,1 +1,26 @@
-<p>login works!</p>
+ <main>
+        <div class="container w-50 mt-5 bg-light text-dark p-4 rounded">
+            <h1 class="text-center mb-4">Iniciar Sesión</h1>
+            <form [formGroup]="formularioLogin" (ngSubmit)="submitForm()" id="loginForm">
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="loginEmail" formControlName="usuario" placeholder="ejemplo@dominio.com">
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="loginPassword" formControlName="contraseña" placeholder="Contraseña">
+                </div>
+                <a routerLink="/register" class="text-decoration-none link-register">¿No tienes cuenta? Regístrate
+                    aquí</a>
+                <a routerLink="/password" class="text-decoration-none d-flex align-items-center mb-3 link-inicio">
+                    Recuperar contarseña
+                </a>
+                <a routerLink="/" class="text-decoration-none d-flex align-items-center mb-3 link-inicio">
+                    Volver al inicio
+                </a>
+                <div class="container w-50 mt-3 rounded">
+                    <button type="submit" class="btn w-100 btn-login" id="loginButton">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </main>

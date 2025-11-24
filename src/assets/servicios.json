@@ -1,0 +1,35 @@
+[
+    {
+        "id":1,
+        "cliente":"Juan Pérez",
+        "Servicio":"Reparación",
+        "identificador":"12.345.678-9",
+        "Contacto": 987654321,
+        "dispositivo": "Móvil",
+        "fecha": "2025-06-01",
+        "valor":15000,
+        "detalles": "Cambio de pantalla"
+    },
+    {
+        "id":2,
+        "cliente":"María López",
+        "Servicio":"Mantenimiento",
+        "identificador":"23.456.789-0",
+        "Contacto": 912345678,
+        "dispositivo": "Laptop",
+        "fecha": "2025-06-05",
+        "valor":20000,
+        "detalles": "Limpieza interna y actualización de software"
+        },
+        {
+        "id":3,
+        "cliente":"Carlos Sánchez",
+        "Servicio":"Instalación",
+        "identificador":"34.567.890-1",
+        "Contacto": 998877665,
+        "dispositivo": "PC de escritorio",
+        "fecha": "2025-06-10",
+        "valor":18000,
+        "detalles": "Instalación de disco SSD"
+        }
+]

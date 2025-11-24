@@ -1,0 +1,29 @@
+[
+    {
+        "id":1,
+        "titulo": "Total del Día",
+        "dato": 35.000,
+        "detalles": "Ingresos por servicios hoy"
+    },
+
+    {
+        "id":2,
+        "titulo": "Servicios Vendidos",
+        "dato": 7,
+        "detalles": "Cantidad de servicios registrados hoy"
+    },
+
+    {
+        "id":3,
+        "titulo": "Servicio más requerido",
+        "dato": "Reparación",
+        "detalles": "4 ventas hoy"
+    },
+
+    {
+        "id":4,
+        "titulo": "Clientes nuevos",
+        "dato": 2,
+        "detalles": "Cantidad de Registros"
+    }
+]

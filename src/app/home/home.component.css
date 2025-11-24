@@ -1,0 +1,96 @@
+
+.t-title {
+    background: linear-gradient(90deg, var(--bs-primary-300) 0%, var(--bs-primary-200) 100%);
+}
+
+.container-primary {
+    border: solid 1px var(--bs-primary-300);
+}
+
+#loginButton {
+    border: solid 1px var(--bs-primary-300);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#loginButton:hover {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+}
+
+#registerButton:hover {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+}
+
+#registerButton {
+    border: solid 1px var(--bs-primary-300);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.f-gestion {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+    box-shadow: 11px 11px 19px -3px rgba(0, 0, 0, 0.44);
+    -webkit-box-shadow: 11px 11px 19px -3px rgba(156, 156, 156, 0.44);
+    -moz-box-shadow: 11px 11px 19px -3px rgba(142, 140, 140, 0.44);
+}
+
+.btn-login {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-register {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-siguiente {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.link-register {
+    color: var(--bs-primary)
+}
+
+.link-login {
+    color: var(--bs-primary)
+}
+
+.link-inicio {
+    color: var(--bs-primary)
+}
+
+.btnRegistrar {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+}
+
+@media screen and (max-width: 768px) {
+    .container-cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .f-gestion {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}

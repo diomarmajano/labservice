@@ -1,0 +1,3 @@
+.t-title {
+    background: linear-gradient(90deg, var(--bs-primary-300) 0%, var(--bs-primary-200) 100%);
+}

@@ -1,1 +1,54 @@
-<p>register works!</p>
+ <main>
+        <div class="container w-50 mt-5 bg-light text-dark p-4 rounded">
+            <h1 class="text-center mb-4">Registro</h1>
+            <form [formGroup]="formularioRegister" (ngSubmit)="submitForm()" id="registerForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" formControlName="nombre" placeholder="Nombre">
+                    <div *ngIf="campoNoValido('nombre')" class="error">
+                        <small *ngIf="formularioRegister.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+                        <small *ngIf="formularioRegister.get('nombre')?.errors?.['minlength']">Mínimo 3 caracteres.</small>
+                        <small *ngIf="formularioRegister.get('nombre')?.errors?.['pattern']">Solo letras y espacios permitidos.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol</label>
+                    <select class="form-select" id="rol" formControlName="rol">
+                        <option value="admin">Administrador</option>
+                        <option value="user">Usuario</option>
+                    </select>
+                    <div *ngIf="campoNoValido('rol')" class="error">
+                        <small *ngIf="formularioRegister.get('rol')?.errors?.['required']">El rol es obligatorio.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" formControlName="email" placeholder="ejemplo@dominio.com">
+                    <div *ngIf="campoNoValido('email')" class="error">
+                        <small *ngIf="formularioRegister.get('email')?.errors?.['required']">El email es obligatorio.</small>
+                        <small *ngIf="formularioRegister.get('email')?.errors?.['email']">Email no válido.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" formControlName="contraseña" placeholder="Contraseña">
+                    <div *ngIf="campoNoValido('contraseña')" class="error">
+                        <small *ngIf="formularioRegister.get('contraseña')?.errors?.['required']">La contraseña es obligatoria.</small>
+                        <small *ngIf="formularioRegister.get('contraseña')?.errors?.['minlength']">Mínimo 8 caracteres.</small>
+                        <small *ngIf="formularioRegister.get('contraseña')?.errors?.['pattern']">
+                            Debe contener mayúscula, minúscula, número y símbolo.
+                        </small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                </div>
+                <a routerLink="/login" class="text-decoration-none link-login">Inicia sesión aquí</a>
+                <a routerLink="/" class="text-decoration-none d-flex align-items-center mb-3 link-inicio">
+                    Volver al inicio
+                </a>
+                <div class="container w-50 mt-3 rounded">
+                    <button type="submit" class="btn btn-register w-100" id="registerButton">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </main>
