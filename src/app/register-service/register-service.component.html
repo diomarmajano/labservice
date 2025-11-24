@@ -29,10 +29,10 @@
         <div class="mb-3">
           <label>Tipo de Servicio</label>
           <select formControlName="tipoServicio" class="form-select" title="Tipo de Servicio">
-            <option value="" disabled>Seleccione un tipo de servicio</option>
-            <option value="garantia">Garantía</option>
-            <option value="reparacion">Reparación</option>
-            <option value="revision">Revisión</option>
+            <option value="examen-sangre">Examen de Sangre</option>
+            <option value="radiografia">Radiografía</option>
+            <option value="ecografia">Ecografía</option>
+            <option value="laboratorio-general">Laboratorio General</option>
             <option value="otro">Otro</option>
           </select>
         </div>
@@ -40,9 +40,12 @@
         <div class="mb-3">
           <label for="tipoDispositivoSelect">Tipo de dispositivo</label>
           <select id="tipoDispositivoSelect" formControlName="tipoDispositivo" class="form-select">
-            <option value="" disabled>Seleccione un dispositivo</option>
-            <option value="movil">Móvil</option>
-            <option value="tablet">Tablet</option>
+             <option value="" disabled>Seleccione un dispositivo</option>
+            <option value="centrifuga">Centrífuga</option>
+            <option value="microscopio">Microscopio</option>
+            <option value="analizador-quimico">Analizador Químico</option>
+            <option value="incubadora">Incubadora</option>
+            <option value="equipo-rayos-x">Equipo de Rayos X</option>
             <option value="otro">Otro</option>
           </select>
         </div>

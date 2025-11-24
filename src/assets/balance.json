@@ -1,29 +1,29 @@
 [
     {
-        "id":1,
+        "id": 1,
         "titulo": "Total del Día",
-        "dato": 35.000,
-        "detalles": "Ingresos por servicios hoy"
+        "dato": 128500,
+        "detalles": "Ingresos por exámenes realizados hoy"
     },
 
     {
-        "id":2,
+        "id": 2,
         "titulo": "Servicios Vendidos",
-        "dato": 7,
-        "detalles": "Cantidad de servicios registrados hoy"
+        "dato": 42,
+        "detalles": "Cantidad de exámenes procesados hoy"
     },
 
     {
-        "id":3,
+        "id": 3,
         "titulo": "Servicio más requerido",
-        "dato": "Reparación",
-        "detalles": "4 ventas hoy"
+        "dato": "Hemograma completo",
+        "detalles": "12 solicitudes hoy"
     },
 
     {
-        "id":4,
+        "id": 4,
         "titulo": "Clientes nuevos",
-        "dato": 2,
-        "detalles": "Cantidad de Registros"
+        "dato": 9,
+        "detalles": "Pacientes atendidos por primera vez"
     }
 ]

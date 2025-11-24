@@ -1,35 +1,35 @@
 [
     {
-        "id":1,
-        "cliente":"Juan Pérez",
-        "Servicio":"Reparación",
-        "identificador":"12.345.678-9",
+        "id": 1,
+        "cliente": "Ana Gómez",
+        "Servicio": "Examen de sangre",
+        "identificador": "11.234.567-8",
         "Contacto": 987654321,
-        "dispositivo": "Móvil",
+        "dispositivo": "Equipo hematológico",
         "fecha": "2025-06-01",
-        "valor":15000,
-        "detalles": "Cambio de pantalla"
+        "valor": 8500,
+        "detalles": "Análisis completo de hemograma"
     },
     {
-        "id":2,
-        "cliente":"María López",
-        "Servicio":"Mantenimiento",
-        "identificador":"23.456.789-0",
+        "id": 2,
+        "cliente": "Luis Martínez",
+        "Servicio": "Radiografía",
+        "identificador": "22.345.678-9",
         "Contacto": 912345678,
-        "dispositivo": "Laptop",
+        "dispositivo": "Rayos X digital",
         "fecha": "2025-06-05",
-        "valor":20000,
-        "detalles": "Limpieza interna y actualización de software"
-        },
-        {
-        "id":3,
-        "cliente":"Carlos Sánchez",
-        "Servicio":"Instalación",
-        "identificador":"34.567.890-1",
+        "valor": 15000,
+        "detalles": "Radiografía de tórax para control médico"
+    },
+    {
+        "id": 3,
+        "cliente": "Paula Rivas",
+        "Servicio": "Ecografía abdominal",
+        "identificador": "33.456.789-0",
         "Contacto": 998877665,
-        "dispositivo": "PC de escritorio",
+        "dispositivo": "Ecógrafo portátil",
         "fecha": "2025-06-10",
-        "valor":18000,
-        "detalles": "Instalación de disco SSD"
-        }
+        "valor": 22000,
+        "detalles": "Ecografía para evaluación general abdominal"
+    }
 ]
