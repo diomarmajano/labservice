@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --bs-primary: #6610f2;
+    --bs-primary-100: #e9ddfb;
+    --bs-primary-200: #7c3ff7;
+    --bs-primary-300: #925ef9;
+    --bs-primary-400: #a87dfa;
+    --bs-primary-500: #be9cfc;
+    --bs-primary-200: #c5a8fa;
+    --bs-secondary: #6710f296;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-font-sans-serif: "Helvetica Neue", Arial, sans-serif;
+    --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}

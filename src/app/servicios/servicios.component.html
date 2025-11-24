@@ -1,1 +1,20 @@
-<p>servicios works!</p>
+<app-nav [titulo]="'Servicios'" [subtitulo]="'Lista de servicios registrados'"></app-nav>
+<div class="container mt-4">
+            <div id="serviciosContainer" class="row g-4">
+                <div *ngFor="let servicio of servicios" class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4">
+                        <div class="card-body">
+                            <h5 class="card-title badge text-bg-info">{{servicio.cliente}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{servicio.servicio}}</h6>
+                            <p class="card-text mb-1"><strong>RUT:</strong>{{servicio.identificador}}</p>
+                            <p class="card-text mb-1"><strong>Contacto:</strong> {{servicio.contacto}}</p>
+                            <p class="card-text mb-1"><strong>Dispositivo:</strong> {{servicio.dispositivo}}</p>
+                            <p class="card-text mb-1"><strong>Fecha:</strong> {{servicio.fecha}}</p>
+                            <p class="card-text mb-1 badge text-bg-success"><strong>Valor:</strong> ${{servicio.valor}}</p>
+                            <p class="card-text"><strong>Detalles:</strong> {{servicio.detalles}}</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>

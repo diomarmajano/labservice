@@ -1,1 +1,15 @@
-<p>balance works!</p>
+<app-nav [titulo]="'Balance'" [subtitulo]="'Resumen de ingresos y servicios'"></app-nav>
+<div  class="container mt-4">
+            <div class="row g-4">
+                <!-- Card resumen total del día -->
+                <div *ngFor="let balance of balances" class="col-12 col-md-6 col-lg-3">
+                    <div class="card indigo bg-light bg-gradient h-100 shadow bentogrid-card">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <h5 class="card-title">{{balance.titulo}}</h5>
+                            <span class="display-6 fw-bold">{{balance.dato}}</span>
+                            <p class="card-text">{{balance.detalles}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

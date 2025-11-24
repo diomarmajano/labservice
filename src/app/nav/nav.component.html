@@ -1,1 +1,46 @@
-<p>nav works!</p>
+<div class="container">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#6610f2" class="bi bi-phone"
+          viewBox="0 0 16 16">
+          <path
+            d="M11 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h6zm0 1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-3 11.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0z" />
+        </svg>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" (click)="cerrarSesion()" routerLink="/login">Cerrar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/registrar-servicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/balance">Balance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/servicios">Servicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/perfil">Perfil</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Banner dinámico -->
+<div class="container mt-3">
+  <div class="mb-3 text-white p-3 rounded-4 t-title text-center">
+    <h1>{{ titulo }}</h1>
+    <p *ngIf="subtitulo">{{ subtitulo }}</p>
+  </div>
+</div>

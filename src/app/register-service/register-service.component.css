@@ -1,0 +1,7 @@
+.btn-siguiente {
+    background-color: var(--bs-primary-300);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
