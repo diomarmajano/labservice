@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { BalanceComponent } from './balance/balance.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PasswordComponent } from './password/password.component';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { PasswordComponent } from './password/password.component';
     BalanceComponent,
     ServiciosComponent,
     PerfilComponent,
-    PasswordComponent
+    PasswordComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule
     
   ],
   providers: [],

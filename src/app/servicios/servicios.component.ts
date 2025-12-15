@@ -11,14 +11,19 @@ import { JsonService } from '../services/json.servicios';
   providers:[JsonService]
 })
 export class ServiciosComponent implements OnInit {
-  servicios:any;
-  
+
+   servicios: any[] = []; 
+
     constructor(private jsonService: JsonService) {}
   
     ngOnInit(): void {
-        this.jsonService.getJsonData().subscribe(data=>{
-          this.servicios=data;
-        })
-    }
+    this.cargarUsuarios(); 
+  }
+
+  cargarUsuarios() {
+    this.jsonService.getJsonData().subscribe(data => {
+      this.servicios = data._embedded.userList;
+    });
+  }
 
 }

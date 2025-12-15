@@ -12,13 +12,14 @@ export class JsonService {
     'Content-Type': 'application/json'
   })
   }
-  private JsonUrl= 'assets/balance.json';
+
   
-  private JsonUrlGit= 'https://diomarmajano.github.io/json-page/balance.json';
+  private JsonUrl= 'http://localhost:8082/resultados';
 
   constructor(private http: HttpClient) { }
 
   getJsonData():Observable<any>{
-    return this.http.get(this.JsonUrlGit);
+    return this.http.get(this.JsonUrl);
   }
+
 }

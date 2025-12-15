@@ -10,13 +10,17 @@ import { JsonService } from '../services/json.service';
   providers:[JsonService]
 })
 export class BalanceComponent implements OnInit{
-  balances:any;
+   balances: any[] = []; 
 
   constructor(private jsonService: JsonService) {}
 
-  ngOnInit(): void {
-      this.jsonService.getJsonData().subscribe(data=>{
-        this.balances=data;
-      })
-  }
+    ngOnInit(): void {
+      this.cargarUsuarios(); 
+    }
+  
+    cargarUsuarios() {
+      this.jsonService.getJsonData().subscribe(data => {
+        this.balances = data._embedded.muestrasList;
+      });
+    }
 }

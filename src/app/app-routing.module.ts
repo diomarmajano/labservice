@@ -10,6 +10,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { PasswordComponent } from './password/password.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { RegistroComponent } from './registro/registro.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registrar-servicio', component: RegisterServiceComponent },
   { path: 'balance', component: BalanceComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: 'servicios', component: ServiciosComponent },
   {path: 'perfil', component: PerfilComponent},
   {path: 'password', component: PasswordComponent},

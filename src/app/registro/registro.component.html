@@ -1,0 +1,133 @@
+<app-nav [titulo]="'Registro'" [subtitulo]="'Registro de profesionales'"> </app-nav>
+
+<div class="container mt-4">
+    <div class="mb-3">
+        <label class="form-label">Seleccionar profesional</label>
+
+        <select class="form-select" [(ngModel)]="usuarioSeleccionadoId" name="usuarioSeleccionado"
+            (change)="cargarUsuarioSeleccionado()">
+
+            <option value="">-- Seleccione --</option>
+            <option *ngFor="let u of servicios" [value]="u.id">
+                {{ u.nombre }} - {{ u.rut }}
+            </option>
+        </select>
+
+        <div class="d-flex gap-2 mt-3">
+            <button class="btn btn-sm btn-primary" (click)="abrirFormulario('editar')" data-bs-toggle="modal"
+                data-bs-target="#usuarioModal">
+                Editar
+            </button>
+
+            <button class="btn btn-sm btn-danger" (click)="abrirFormulario('eliminar')" data-bs-toggle="modal"
+                data-bs-target="#usuarioModal">
+                Eliminar
+            </button>
+        </div>
+
+    </div>
+
+    <div class="card mb-4 p-4 shadow rounded-4">
+        <h4 class="mb-3">Registrar profesional</h4>
+
+        <form (ngSubmit)="guardarProfesional()" #form="ngForm">
+
+            <div class="mb-3">
+                <label class="form-label">RUT</label>
+                <input type="text" class="form-control" name="rut" [(ngModel)]="nuevoUsuario.rut" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <select class="form-select" name="rol" [(ngModel)]="nuevoUsuario.rol" required>
+                    <option value="">Seleccione</option>
+                    <option>Médico</option>
+                    <option>Enfermera</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Departamento</label>
+                <input type="text" class="form-control" name="departamento" [(ngModel)]="nuevoUsuario.departamento"
+                    required>
+            </div>
+
+            <button class="btn btn-primary" [disabled]="form.invalid">
+                Guardar
+            </button>
+
+        </form>
+    </div>
+
+</div>
+<div class="modal fade" id="usuarioModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    {{ modoFormulario === 'crear' ? 'Registrar Profesional' :
+                    modoFormulario === 'editar' ? 'Editar Profesional' :
+                    'Eliminar Profesional' }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div *ngIf="usuarioForm.id && modoFormulario === 'eliminar'">
+                    <p>
+                        ¿Seguro que deseas eliminar al profesional
+                        <strong>{{ usuarioForm.nombre }}</strong>?
+                    </p>
+                </div>
+
+                <form *ngIf="usuarioForm.id && modoFormulario !== 'eliminar'">
+
+                    <div class="mb-3">
+                        <label class="form-label">RUT</label>
+                        <input class="form-control" [(ngModel)]="usuarioForm.rut" name="rut" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input class="form-control" [(ngModel)]="usuarioForm.nombre" name="nombre" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Rol</label>
+                        <input class="form-control" [(ngModel)]="usuarioForm.rol" name="rol" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Departamento</label>
+                        <input class="form-control" [(ngModel)]="usuarioForm.departamento" name="departamento" required>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <button class="btn" [ngClass]="{
+                  'btn-success': modoFormulario === 'crear',
+                  'btn-primary': modoFormulario === 'editar',
+                  'btn-danger': modoFormulario === 'eliminar'
+                }" (click)="accionFormulario()" data-bs-dismiss="modal">
+                    {{ modoFormulario === 'crear' ? 'Guardar' :
+                    modoFormulario === 'editar' ? 'Actualizar' :
+                    'Eliminar' }}
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
