@@ -5,7 +5,7 @@
         <label class="form-label">Seleccionar profesional</label>
 
         <select class="form-select" [(ngModel)]="usuarioSeleccionadoId" name="usuarioSeleccionado"
-            (change)="cargarUsuarioSeleccionado()">
+            title="Seleccionar profesional" (change)="cargarUsuarioSeleccionado()">
 
             <option value="">-- Seleccione --</option>
             <option *ngFor="let u of servicios" [value]="u.id">
@@ -34,19 +34,19 @@
 
             <div class="mb-3">
                 <label class="form-label">RUT</label>
-                <input type="text" class="form-control" name="rut" [(ngModel)]="nuevoUsuario.rut" required>
+                <input type="text" class="form-control" name="rut" [(ngModel)]="nuevoUsuario.rut" placeholder="Ingrese RUT" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevoUsuario.nombre" required>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevoUsuario.nombre" placeholder="Ingrese nombre" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Rol</label>
-                <select class="form-select" name="rol" [(ngModel)]="nuevoUsuario.rol" required>
+                <select class="form-select" name="rol" [(ngModel)]="nuevoUsuario.rol"  title="Seleccionar rol"required>
                     <option value="">Seleccione</option>
-                    <option>Médico</option>
+                    <option>Medico</option>
                     <option>Enfermera</option>
                 </select>
             </div>
@@ -54,10 +54,10 @@
             <div class="mb-3">
                 <label class="form-label">Departamento</label>
                 <input type="text" class="form-control" name="departamento" [(ngModel)]="nuevoUsuario.departamento"
-                    required>
+                    placeholder="Departamento" required>
             </div>
 
-            <button class="btn btn-primary" [disabled]="form.invalid">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
                 Guardar
             </button>
 
@@ -75,7 +75,7 @@
                     modoFormulario === 'editar' ? 'Editar Profesional' :
                     'Eliminar Profesional' }}
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">.</button>
             </div>
 
             <div class="modal-body">
@@ -91,22 +91,22 @@
 
                     <div class="mb-3">
                         <label class="form-label">RUT</label>
-                        <input class="form-control" [(ngModel)]="usuarioForm.rut" name="rut" required>
+                        <input class="form-control" [(ngModel)]="usuarioForm.rut" name="rut" placeholder="Rut" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input class="form-control" [(ngModel)]="usuarioForm.nombre" name="nombre" required>
+                        <input class="form-control" [(ngModel)]="usuarioForm.nombre" name="nombre"  placeholder="Nombre" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Rol</label>
-                        <input class="form-control" [(ngModel)]="usuarioForm.rol" name="rol" required>
+                        <input class="form-control" [(ngModel)]="usuarioForm.rol" name="rol" placeholder="Rol" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Departamento</label>
-                        <input class="form-control" [(ngModel)]="usuarioForm.departamento" name="departamento" required>
+                        <input class="form-control" [(ngModel)]="usuarioForm.departamento" name="departamento"  placeholder="Departamento" required>
                     </div>
 
                 </form>
