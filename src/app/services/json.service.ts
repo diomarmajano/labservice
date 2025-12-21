@@ -15,6 +15,7 @@ export class JsonService {
 
   
   private JsonUrl= 'http://localhost:8082/resultados';
+  private urlDocker = 'http://ip172-18-0-15-d547ocs69qi000d6thm0-8082.direct.labs.play-with-docker.com/resultados'
 
   constructor(private http: HttpClient) { }
 
