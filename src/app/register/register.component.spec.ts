@@ -1,77 +1,107 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegisterComponent } from './register.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [RegisterComponent],
       imports: [
-        HttpClientTestingModule, ReactiveFormsModule, FormsModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    });
+        ReactiveFormsModule,
+        RouterTestingModule 
+      ]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.detectChanges(); 
+
+    spyOn(window, 'alert');
+    localStorage.clear();
   });
 
-  it('debe crear el componente', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('el formulario debe ser inválido cuando está vacío', () => {
-    expect(component.formularioRegister.valid).toBeFalse();
+  //Validamos campos del formulario
+
+  it('debería validar que el nombre sea obligatorio y solo acepte letras', () => {
+    const nombre = component.formularioRegister.get('nombre');
+    
+    nombre?.setValue('');
+    expect(nombre?.hasError('required')).toBeTruthy();
+
+    nombre?.setValue('12345'); // Solo letras permitidas
+    expect(nombre?.hasError('pattern')).toBeTruthy();
+
+    nombre?.setValue('Juan Perez');
+    expect(nombre?.valid).toBeTruthy();
   });
 
-  it('el formulario debe ser válido con datos correctos', () => {
-    component.formularioRegister.setValue({
-      nombre: 'Juan Perez',
-      rol: 'user',
-      email: 'juan@test.cl',
-      contraseña: 'Password1!'
-    });
+  it('debería validar la contraseña con el patrón de seguridad', () => {
+    const pass = component.formularioRegister.get('contraseña');
+    
+    pass?.setValue('debil');
+    expect(pass?.hasError('minlength')).toBeTruthy();
 
-    expect(component.formularioRegister.valid).toBeTrue();
+    // Sin mayúscula ni símbolo
+    pass?.setValue('password123');
+    expect(pass?.hasError('pattern')).toBeTruthy();
+
+    //Valida formato correcto
+    pass?.setValue('Admin123!');
+    expect(pass?.valid).toBeTruthy();
   });
 
-  it('campoNoValido debe retornar true si el campo es inválido y touched', () => {
-    const control = component.formularioRegister.get('nombre');
-    control?.markAsTouched();
 
-    expect(component.campoNoValido('nombre')).toBeTrue();
+  it('campoNoValido() debería retornar true solo si el campo es inválido y fue tocado', () => {
+    const nombre = component.formularioRegister.get('nombre');
+    nombre?.setValue('');
+    
+    expect(component.campoNoValido('nombre')).toBeFalsy();
+
+    nombre?.markAsTouched();
+    expect(component.campoNoValido('nombre')).toBeTruthy();
   });
 
-  it('campoNoValido debe retornar false si el campo es válido', () => {
-    component.formularioRegister.get('nombre')?.setValue('Juan');
-    component.formularioRegister.get('nombre')?.markAsTouched();
 
-    expect(component.campoNoValido('nombre')).toBeFalse();
-  });
-
-  it('debe llamar submitForm cuando se envía el formulario', () => {
-    spyOn(component, 'submitForm');
-
-    component.formularioRegister.setValue({
-      nombre: 'Juan Perez',
+  it('debería registrar al usuario en localStorage si el formulario es válido', () => {
+    const datosValidos = {
+      nombre: 'Diomar Majano',
       rol: 'admin',
-      email: 'juan@test.cl',
-      contraseña: 'Password1!'
-    });
+      email: 'diomar@test.com',
+      contraseña: 'Password123!'
+    };
 
-    const form = fixture.nativeElement.querySelector('#registerForm');
-    form.dispatchEvent(new Event('submit'));
+    component.formularioRegister.setValue(datosValidos);
+    
+    const spyReset = spyOn(component.formularioRegister, 'reset');
 
-    expect(component.submitForm).toHaveBeenCalled();
+    component.submitForm();
+
+    const guardado = JSON.parse(localStorage.getItem('usuarioRegistrado')!);
+    expect(guardado.email).toBe(datosValidos.email);
+    expect(window.alert).toHaveBeenCalledWith('Usuario registrado correctamente');
+    expect(spyReset).toHaveBeenCalled();
   });
 
-  it('debe existir el botón registrar', () => {
-    const button = fixture.nativeElement.querySelector('#registerButton');
-    expect(button).toBeTruthy();
+  it('no debería registrar nada si el formulario es inválido', () => {
+    spyOn(console, 'log');
+    component.formularioRegister.setValue({
+      nombre: '',
+      rol: '',
+      email: '',
+      contraseña: ''
+    });
+
+    component.submitForm();
+
+    expect(localStorage.getItem('usuarioRegistrado')).toBeNull();
+    expect(console.log).toHaveBeenCalledWith('Formulario inválido');
   });
 });
